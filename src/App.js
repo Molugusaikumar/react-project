@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import Products from './pages/Products';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
-
+import AddProductForm from './components/ProductForm';
 
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />            
             {/* <Route path="/product/new" element={<ProductForm onAddProduct={handleAddProduct} />} /> */}
-            <Route path="/products/new" element={<ProductForm />} />
+            <Route path="/products/new" element={<AddProductForm />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/contact" element={<ContactUs />} />
             {/* <Route path="/product/delete" element={}></Route> */}
