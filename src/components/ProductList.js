@@ -53,7 +53,7 @@ const ProductList = () => {
   const handleDeleteProduct = (id) => {
     fetch(`https://fake-store-api.mock.beeceptor.com/api/products/${id}`, {
       method: 'DELETE',
-    })
+    }) 
       .then(response => {
         if (response.ok) {
           const updatedProducts = products.filter(product => product.id !== id);
