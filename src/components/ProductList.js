@@ -34,11 +34,7 @@ const ProductList = () => {
         {filteredProducts.map(product => (
           <div key={product.id} className="border rounded p-2 md:p-4 shadow hover:shadow-lg">
             <h2 className="text-lg md:text-xl font-bold">{product.name || 'No Name'}</h2>
-            <img
-              src={product.image || '/path/to/placeholder.jpg'}
-              alt={product.name || 'Product image'}
-              className="w-full h-48 md:h-64 object-cover"
-            />
+           
             <p className="mt-1 text-sm md:text-base">Price: ${product.price || 'N/A'}</p>
             <p className="mt-1 text-sm md:text-base">Description: {product.description || 'No description available'}</p>
             <p className="mt-1 text-sm md:text-base">Unit: {product.unit || 'N/A'}</p>
