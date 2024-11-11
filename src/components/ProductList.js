@@ -4,10 +4,8 @@ import SearchBar from './SearchBar';
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = (term) => {
-    setSearchTerm(term);
     if (term.trim() === '') {
       setFilteredProducts(products);
     } else {

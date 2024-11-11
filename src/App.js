@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/NavBar';
 import Home from './pages/Home';
@@ -9,13 +8,8 @@ import ContactUs from './pages/ContactUs';
 import AddProductForm from './components/ProductForm';
 
 
-function App() {
-  const [products, setProducts] = useState([]);  // State to store the products
+ function App() {
 
-  // Function to handle adding a new product
-  const handleAddProduct = (newProduct) => {
-    setProducts((prevProducts) => [...prevProducts, newProduct]);
-  };
 
   return (
     <Router>
@@ -25,11 +19,11 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />            
-            {/* <Route path="/product/new" element={<ProductForm onAddProduct={handleAddProduct} />} /> */}
+            
             <Route path="/products/new" element={<AddProductForm />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/contact" element={<ContactUs />} />
-            {/* <Route path="/product/delete" element={}></Route> */}
+        
           </Routes>
         </main>
       </div>
