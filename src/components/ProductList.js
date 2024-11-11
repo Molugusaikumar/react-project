@@ -49,11 +49,6 @@ const ProductList = () => {
     }
   };
 
-  const handleEditProduct = (product) => {
-    setIsEditing(true);
-    setCurrentProduct(product);
-    setShowForm(true);
-  };
 
   const handleDeleteProduct = (id) => {
     fetch(`https://fake-store-api.mock.beeceptor.com/api/products/${id}`, {
