@@ -17,10 +17,23 @@ const ProductForm = ({ onSubmit, initialData = {}, onCancel }) => {
     setProduct({});
   };
 
- return (
+  return (
     <form onSubmit={handleSubmit} className="p-4 border rounded shadow-md bg-white">
       <h2 className="text-lg font-bold mb-4">{initialData.name ? 'Edit Product' : 'Add New Product'}</h2>
-      
+
+      <div className="mb-4">
+        <label className="block mb-1 font-medium">Id</label>
+        <input
+          type="number"
+          name="id"
+          placeholder="ID"
+          value={product.id || ''}
+          onChange={handleChange}
+          className="w-full border border-gray-300 rounded px-3 py-2"
+          required
+        />
+      </div>
+
       <div className="mb-4">
         <label className="block mb-1 font-medium">Name</label>
         <input
@@ -70,8 +83,8 @@ const ProductForm = ({ onSubmit, initialData = {}, onCancel }) => {
           className="w-full border border-gray-300 rounded px-3 py-2"
           required
         />
-     </div>
-     
+      </div>
+
       <div className="mb-4">
         <label className="block mb-1 font-medium">Discount (%)</label>
         <input
@@ -84,8 +97,7 @@ const ProductForm = ({ onSubmit, initialData = {}, onCancel }) => {
         />
       </div>
 
-      <div className="mb-4">
-        <label className="block mb-1 font-medium">Availability</label>
+      <div className="mb-4 flex items-center">
         <input
           type="checkbox"
           name="availability"
@@ -93,30 +105,18 @@ const ProductForm = ({ onSubmit, initialData = {}, onCancel }) => {
           onChange={handleChange}
           className="mr-2"
         />
-        Available
+        <label className="font-medium">Available</label>
       </div>
 
-      <div className="mb-4">
-        <label className="block mb-1 font-medium">Rating (out of 5)</label>
-        <input
-          type="number"
-          name="rating"
-          step="0.1"
-          max="5"
-          placeholder="Rating"
-          value={product.rating || ''}
-          onChange={handleChange}
-          className="w-full border border-gray-300 rounded px-3 py-2"
-        />
-      </div>
-
-      <div className="flex justify-end">
-        <button type="button" onClick={onCancel} className="bg-gray-300 text-gray-700 px-4 py-2 rounded mr-2">
-          Cancel
-        </button>
+      <div className="flex justify-between">
         <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
           {initialData.name ? 'Update Product' : 'Add Product'}
         </button>
+        {onCancel && (
+          <button type="button" onClick={onCancel} className="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">
+            Cancel
+          </button>
+        )}
       </div>
     </form>
   );

@@ -50,13 +50,13 @@ const ProductList = () => {
   };
 
 
-  const handleDeleteProduct = (id) => {
-    fetch(`https://fake-store-api.mock.beeceptor.com/api/products/${id}`, {
+  const handleDeleteProduct = (product_id) => {
+    fetch(`https://fake-store-api.mock.beeceptor.com/api/products/${product_id}`, {
       method: 'DELETE',
     }) 
       .then(response => {
         if (response.ok) {
-          const updatedProducts = products.filter(product => product.id !== id);
+          const updatedProducts = products.filter(product => product.product_id !== product_id);
           setProducts(updatedProducts);
           setFilteredProducts(updatedProducts);
         } else {
@@ -87,11 +87,14 @@ const ProductList = () => {
         {filteredProducts.map(product => (
           <div key={product.id} className="border rounded p-2 md:p-4 shadow hover:shadow-lg">
             <h2 className="text-lg md:text-xl font-bold">{product.name || 'No Name'}</h2>
+            <p className="mt-1 text-sm md:text-base">Id:{product.product_id}</p>
+            <p className="mt-1 text-sm md:text-base">Discound:{ product.discount}</p>
             <p className="mt-1 text-sm md:text-base">Price: ${product.price || 'N/A'}</p>
             <p className="mt-1 text-sm md:text-base">Description: {product.description || 'No description available'}</p>
             <p className="mt-1 text-sm md:text-base">Unit: {product.unit || 'N/A'}</p>
             <p className="mt-1 text-sm md:text-base">Rating: {product.rating ? `${product.rating} stars` : 'Not rated'}</p> 
-            <button onClick={() => handleDeleteProduct(product.id)} className="mt-2 p-1 bg-red-500 text-white rounded">Delete</button>
+            <p className="mt-1 text-sm md:text-base">Brand:{ product.brand || 'N/A'}</p> 
+            <button onClick={() => handleDeleteProduct(product.product_id)} className="mt-2 p-1 bg-red-500 text-white rounded">Delete</button>
           </div>
         ))}
       </div>
